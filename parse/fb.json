@@ -1,0 +1,15 @@
+{
+  "parser_name": "facebook-search-top",
+  "parser_type": "html",
+  "example_url": "https://www.facebook.com/search/top/?q=18232032959",
+  "no_default_fields": false,
+  "rules": {
+    "root": [
+      {
+        "rule_type": "string",
+        "item_key": "results",
+        "xpath": "//code/comment()"
+      }
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "parser_name": "free-proxy-list",
+  "parser_type": "html",
+  "example_url": "https://free-proxy-list.net/",
+  "no_default_fields": false,
+  "rules": {
+    "root": [
+      {
+        "rule_type": "dom",
+        "item_key": "proxies",
+        "xpath": "//*[@id='proxylisttable']//tr"
+      }
+    ],
+    "proxies": [
+      {
+        "rule_type": "string",
+        "item_key": "Ip",
+        "xpath": "./td[1]"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "Port",
+        "xpath": "./td[2]"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "Code",
+        "xpath": "./td[3]"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "Country",
+        "xpath": "./td[4]"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "Anonymity",
+        "xpath": "./td[5]"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "Google",
+        "xpath": "./td[6]"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "Https",
+        "xpath": "./td[7]"
+      },
+      {
+        "rule_type": "string",
+        "item_key": "LastChecked",
+        "xpath": "./td[8]"
+      }
+    ]
+  }
+}
