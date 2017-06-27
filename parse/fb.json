@@ -3,13 +3,18 @@
   "parser_type": "html",
   "example_url": "https://www.facebook.com/search/top/?q=18232032959",
   "no_default_fields": false,
+  "revisit_interval": 0,
   "rules": {
     "root": [
       {
         "rule_type": "string",
         "item_key": "results",
-        "xpath": "//code/comment()"
+        "is_seed_url": false,
+        "xpath": "//code/comment()",
+        "regex": "",
+        "js": "function process(s) {\n    var regexs = {\n        img:/<img class=\"_1glk img\" src=\"(.+?)\"/g,\n        name: /<div class=\"_32mo\">(.+?)<\\/div>/g\n    };\n    var tags = /<(?:.|\\s)*?>/g;\n    var obj = {};\n    for (var p in regexs) {\n        var r = regexs[p].exec(s);\n        if (r) {\n            obj[p] = r[1].replace(\"&amp;\", \"&\");\n        }\n    }\n    obj.content = s.replace(tags, \" \").replace(\"查看照片\", \"\").replace(/\\s+/g, \" \").trim();\n    return obj;\n}"
       }
     ]
-  }
+  },
+  "post_processor": ""
 }

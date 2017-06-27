@@ -25,7 +25,7 @@ func main() {
 	Text, _ := ioutil.ReadFile("fb.html")
 	html := strings.Replace(string(Text), "<head>", "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">", 1)
 	_, retItems, err := parser.Parse([]byte(html), pageUrl, &parseConf)
-	//str, _ := json.Marshal(retItems)
-	fmt.Println(retItems[0]["results"])
-	//fmt.Println(string(str))
+	str, _ := json.Marshal(retItems)
+	//fmt.Println(retItems[0]["results"])
+	fmt.Println(string(str))
 }
